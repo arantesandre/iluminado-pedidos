@@ -220,24 +220,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const precoAgua = 15;
   const precoVasilhame = 18;
 
-  // Mostrar ou esconder campo de vasilhame
   incluirVasilhame.addEventListener("change", () => {
     if (incluirVasilhame.checked) {
       quantidadeVasilhame.style.display = "block";
     } else {
       quantidadeVasilhame.style.display = "none";
-      quantidadeVasilhame.value = ""; // Limpa o campo ao desmarcar
+      quantidadeVasilhame.value = "";
     }
-    
     calcularTotal();
   });
 
-  // Atualizar total em tempo real
   document.querySelectorAll("input, select").forEach(el => {
     el.addEventListener("input", calcularTotal);
   });
 
-  // Modal de troco ao escolher "Dinheiro"
   pagamentoSelect.addEventListener("change", function () {
     if (this.value === "Dinheiro") {
       modalTroco.style.display = "block";
@@ -248,25 +244,23 @@ document.addEventListener("DOMContentLoaded", function () {
     calcularTotal();
   });
 
-  // Botões do modal de troco
   closeTroco.onclick = () => {
     modalTroco.style.display = "none";
     pagamentoSelect.value = "";
   };
 
   trocoSim.onclick = () => {
-    valorTrocoInput.style.display = "block"; // Exibe o campo de valor do troco
-    valorTrocoInput.focus(); // Foca automaticamente no campo de troco
-    modalTroco.style.display = "none"; // Fecha o modal de pagamento
+    valorTrocoInput.style.display = "block";
+    valorTrocoInput.focus();
+    modalTroco.style.display = "none";
   };
 
   trocoNao.onclick = () => {
-    valorTrocoInput.style.display = "none"; // Oculta o campo de valor do troco
-    valorTrocoInput.value = ""; // Limpa o campo de troco
-    modalTroco.style.display = "none"; // Fecha o modal de pagamento
+    valorTrocoInput.style.display = "none";
+    valorTrocoInput.value = "";
+    modalTroco.style.display = "none";
   };
 
-  // Fechar modais ao clicar fora
   window.onclick = function (event) {
     if (event.target === modalResumo) {
       modalResumo.style.display = "none";
@@ -276,17 +270,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Fechar modal de resumo ao clicar no "X"
   document.getElementById("fecharResumo").onclick = function () {
     document.getElementById("modalResumo").style.display = "none";
   };
 
-  // Função para formatar valores com vírgula
   function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
-  // Cálculo do total
   function calcularTotal() {
     const qtdAgua = parseInt(document.getElementById("quantidade").value) || 0;
     const qtdVasilhame = incluirVasilhame.checked ? parseInt(quantidadeVasilhame.value) || 0 : 0;
@@ -301,20 +292,38 @@ document.addEventListener("DOMContentLoaded", function () {
     totalField.innerHTML = `<strong>Total: R$ ${formatarMoeda(total)}</strong>`;
   }
 
-  // Submissão do pedido
   pedidoForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value;
-    const endereco = document.getElementById("endereco").value;
+    const nome = document.getElementById("nome").value.trim();
+    const endereco = document.getElementById("endereco").value.trim();
     const quantidade = parseInt(document.getElementById("quantidade").value) || 0;
     const pagamento = pagamentoSelect.value;
-    const vasilhame = incluirVasilhame.checked ? "Sim" : "Não";
-    const vasilhameQtd = incluirVasilhame.checked ? parseInt(quantidadeVasilhame.value) || 0 : 0;
+
+    if (quantidade < 1) {
+      alert("Informe a quantidade de galões.");
+      return;
+    }
+
+    let vasilhameQtd = 0;
+    let vasilhame = "Não";
+
+    if (incluirVasilhame.checked) {
+      vasilhame = "Sim";
+      vasilhameQtd = parseInt(quantidadeVasilhame.value);
+      if (!vasilhameQtd || vasilhameQtd < 1) {
+        alert("Por favor, informe a quantidade de vasilhames.");
+        return;
+      }
+      if (vasilhameQtd > quantidade) {
+        alert("Você não pode pedir mais vasilhames do que galões.");
+        return;
+      }
+    }
+
     const total = (quantidade * precoAgua) + (vasilhameQtd * precoVasilhame);
     const trocoValor = parseFloat(valorTrocoInput.value || 0);
 
-    // Validações de troco
     if (valorTrocoInput.style.display === "block") {
       if (!valorTrocoInput.value) {
         alert("Por favor, informe o valor do troco.");
@@ -331,18 +340,17 @@ document.addEventListener("DOMContentLoaded", function () {
       : "";
 
     const resumo = `  
-        Nome: ${nome}<br>
-        Endereço: ${endereco}<br>
-        Quantidade: ${quantidade} galão(ões)<br>
-        Vasilhame: ${vasilhame} (${vasilhameQtd})<br>
-        Forma de pagamento: ${pagamento}${trocoInfo}<br>
-        <strong>Total: R$ ${formatarMoeda(total)}</strong>
-      `;
+      Nome: ${nome}<br>
+      Endereço: ${endereco}<br>
+      Quantidade: ${quantidade} galão(ões)<br>
+      Vasilhame: ${vasilhame} (${vasilhameQtd})<br>
+      Forma de pagamento: ${pagamento}${trocoInfo}<br>
+      <strong>Total: R$ ${formatarMoeda(total)}</strong>
+    `;
 
     document.getElementById("resumoPedido").innerHTML = resumo;
     document.getElementById("modalResumo").style.display = "block";
 
-    // Botão de enviar via WhatsApp
     document.getElementById("confirmarPedido").onclick = function () {
       const mensagem = `Olá,%20gostaria%20de%20pedir%20água%20de%2020L.%0A%0A` +
         `*Nome*: ${nome}%0A` +
