@@ -170,14 +170,35 @@ button:hover {
 #modalTroco button {
   margin: 10px;
   padding: 10px 15px;
-  background-color: #27ae60;
+  /* background-color: #27ae60; */
   border: none;
   border-radius: 5px;
   color: white;
   cursor: pointer;
 }
 
-#modalTroco button:hover {
+/* #modalTroco button:hover {
   background-color: #2ecc71;
+} */
+
+#trocoNao {
+  background-color: #888;
 }
 
+#trocoNao:hover {
+  background-color: #999;
+}
+
+.mural-avisos {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.mural-avisos p {
+  font-size: large;
+  font-weight: bold;
+}
