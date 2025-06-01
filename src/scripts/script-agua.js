@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const trocoNao = document.getElementById("trocoNao");
   const pedidoForm = document.getElementById("pedidoForm");
 
-  const precoAgua = 15;
+  const precoAgua = 17;
   const precoVasilhame = 18;
 
   incluirVasilhame.addEventListener("change", () => {
@@ -133,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
       : "";
 
     const resumo = `  
+     ÁGUA<br>
+    ----------------------------------------------------<br> 
       Nome: ${nome}<br>
       Endereço: ${endereco}<br>
       Quantidade: ${quantidade} galão(ões)<br>

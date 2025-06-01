@@ -4,68 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="logo_iluminado_gas_agua.png" type="image/x-icon">
-  <title>Pedido de Água - Iluminado Águas</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="src/assets/logo_iluminado_gas_agua.png" type="image/x-icon">
+  <title>Pedido - iluminado Gás e Água</title>
+  <link rel="stylesheet" href="src/styles/style.css">
 </head>
 
 <body>
   <main>
-    <img class="logo_iluminado_aguas" src="logo_iluminado_aguas-sem-fundo-v2.png" alt="logo_iluminado_aguas">
+    <img class="logo_iluminado_aguas" src="src/assets/logo_iluminado_aguas-sem-fundo-v2.png" alt="logo_iluminado_aguas">
 
     <!-- MURAL DE AVISOS -->
-    <div class="mural-avisos">
+    <!-- <div class="mural-avisos">
       <p>Aviso importante</p>
       Informamos que, a partir do dia 01 de Junho de 2025, haverá um reajuste no valor do galão de água de 20 litros
       devido ao
       aumento nos custos operacionais. Agradecemos a compreensão.
-    </div>
+    </div> -->
     <!-- FIM MURAL DE AVISOS -->
 
 
-    <h1>Faça seu Pedido de Água</h1>
-    <p>Preencha o formulário abaixo para solicitar a entrega de água de 20L.</p>
-    <form id="pedidoForm">
-      <input type="text" id="nome" placeholder="Seu nome" required>
-      <input type="text" id="endereco" placeholder="Seu endereço (rua, número e bairro)" required>
-      <input type="number" id="quantidade" placeholder="Quantidade de galões (ex: 2)" required>
+    <h1>Seja bem-vindo!</h1>
+    <h2>O que você gostaria de pedir hoje?</h2>
 
-      <label>
-        <input type="checkbox" id="incluirVasilhame">
-        Incluir vasilhame (+ R$18,00 cada)
-      </label>
-      <input type="number" id="quantidadeVasilhame" placeholder="Quantidade de vasilhames" style="display: none;"
-        min="1">
-
-
-      <select id="pagamento" required>
-        <option value="" disabled selected>Selecione a forma de pagamento</option>
-        <option value="Dinheiro">Dinheiro</option>
-        <option value="Cartão de Crédito">Cartão de Crédito</option>
-        <option value="Cartão de Débito">Cartão de Débito</option>
-        <option value="Pix">Pix</option>
-        <option value="Vale Alimentação">Vale Alimentação</option>
-      </select>
-
-      <!-- MODAL TROCO -->
-      <div id="modalTroco" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeTroco">&times;</span>
-          <h3>Você precisa de troco?</h3>
-          <button type="button" id="trocoSim">Sim</button>
-          <button type="button" id="trocoNao">Não</button>
-        </div>
-      </div>
-      <!-- FIM MODAL TROCO -->
-
-      <input type="number" id="valorTroco" placeholder="Troco para quanto?" style="display: none;" min="0">
-
-      <button type="submit">Finalizar Pedido</button>
-    </form>
+    <div class="container-button">
+      <button onclick="location.href='src/pages/pedido-gas.html'">Gás</button>
+      <button onclick="location.href='src/pages/pedido-agua.html'">Água</button>
+      <button id="btnGasAgua" onclick="location.href='src/pages/pedido-gas-e-agua.html'">Gás e Água</button>
+    </div>
   </main>
-
-  </div>
-  </div>
 
   <!-- MODAL RESUMO DO PEDIDO -->
   <div id="modalResumo" class="modal">
