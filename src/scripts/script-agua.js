@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const trocoNao = document.getElementById("trocoNao");
   const pedidoForm = document.getElementById("pedidoForm");
 
-  const precoAgua = 17;
-  const precoVasilhame = 18;
+  const precoAgua = 15;
+  const precoVasilhame = 20;
 
   incluirVasilhame.addEventListener("change", () => {
     if (incluirVasilhame.checked) {

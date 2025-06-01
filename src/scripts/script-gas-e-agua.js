@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const trocoNao = document.getElementById("trocoNao");
     const pedidoForm = document.getElementById("pedidoForm");
 
-    const precoAgua = 17;
-    const precoVasilhameAgua = 18;
+    const precoAgua = 15;
+    const precoVasilhameAgua = 20;
     const precoGas = 135;
     const precoVasilhameGas = 235;
 
