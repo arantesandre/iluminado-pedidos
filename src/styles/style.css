@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
 }
 
 main {
@@ -153,7 +154,7 @@ button:hover {
 
   }
 
-   .container-button {
+  .container-button {
     max-width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -164,23 +165,26 @@ button:hover {
     /* border: solid 1px; */
   }
 
-.container-button button {
-  background-color: #2c99ce;
-  color: white;
-  padding: 12px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  flex: 1 1 40%;        /* Flexível, com tamanho mínimo de 40% */
-  max-width: 150px;     /* Para não crescer demais */
-  min-width: 120px;     /* Para não encolher demais */
-}
+  .container-button button {
+    background-color: #2c99ce;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1 1 40%;
+    /* Flexível, com tamanho mínimo de 40% */
+    max-width: 150px;
+    /* Para não crescer demais */
+    min-width: 120px;
+    /* Para não encolher demais */
+  }
 
-#btnGasAgua {
-  flex: 1 1 100%;
-  max-width: 100%;
-}
+  #btnGasAgua {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 
   input,
   select {
@@ -262,4 +266,3 @@ button:hover {
 .container-button button:hover {
   background-color: #2fafe4;
 }
-

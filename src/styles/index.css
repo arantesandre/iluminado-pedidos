@@ -1,0 +1,45 @@
+.btn-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.subtext {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.logo-iluminado-aguas {
+    /* height: 22rem; */
+    width: 22rem;
+    margin: 8rem;
+    /* border-radius: 8px; */
+    /* margin-bottom: 20px; */
+    /* border: solid 1px; */
+}
+
+h1 {
+    /* border: solid 1px; */
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 480px) {
+    h2{
+        
+    }
+
+    .logo-iluminado-aguas {
+        /* height: 22rem; */
+        width: 22rem;
+        margin: 1.5rem;
+        /* border-radius: 8px; */
+        /* margin-bottom: 20px; */
+        /* border: solid 1px; */
+    }
+
+}

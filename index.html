@@ -7,11 +7,15 @@
   <link rel="shortcut icon" href="src/assets/logo_iluminado_gas_agua.png" type="image/x-icon">
   <title>Pedido - iluminado Gás e Água</title>
   <link rel="stylesheet" href="src/styles/style.css">
+  <link rel="stylesheet" href="src/styles/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
 </head>
 
 <body>
   <main>
-    <img class="logo_iluminado_aguas" src="src/assets/logo_iluminado_aguas-sem-fundo-v2.png" alt="logo_iluminado_aguas">
+    <img class="logo-iluminado-aguas" src="src/assets/logo_iluminado_aguas-sem-fundo--v2.png" alt="logo_iluminado_aguas">
 
     <!-- MURAL DE AVISOS -->
     <!-- <div class="mural-avisos">
@@ -24,12 +28,34 @@
 
 
     <h1>Seja bem-vindo!</h1>
-    <h2>O que você gostaria de pedir hoje?</h2>
+    <h2 class="subtext">O que você gostaria de pedir hoje?</h2>
 
     <div class="container-button">
-      <button onclick="location.href='src/pages/pedido-gas.html'">Gás</button>
-      <button onclick="location.href='src/pages/pedido-agua.html'">Água</button>
-      <button id="btnGasAgua" onclick="location.href='src/pages/pedido-gas-e-agua.html'">Gás e Água</button>
+      <!-- BOTAO GAS -->
+      <button class="btn-link" onclick="location.href='src/pages/pedido-gas.html'">
+        <span class="material-symbols-outlined">
+          propane_tank
+        </span>
+        Gás
+      </button>
+      <!-- FIM BOTAO GAS -->
+
+      <!-- BOTAO AGUA -->
+      <button class="btn-link" onclick="location.href='src/pages/pedido-agua.html'">
+        <span class="material-symbols-outlined">water_drop</span>
+        Água
+      </button>
+      <!-- FIM BOTAO AGUA -->
+
+      <!-- BOTAO GAS E AGUA -->
+      <button class="btn-link" id="btnGasAgua" onclick="location.href='src/pages/pedido-gas-e-agua.html'">
+        <sapan>
+          <span class="material-symbols-outlined">propane_tank</span>
+          <span class="material-symbols-outlined">water_drop</span>
+        </sapan>
+        Gás e Água
+      </button>
+      <!-- FIM BOTAO GAS E AGUA -->
     </div>
   </main>
 
@@ -49,7 +75,7 @@
     &copy; 2025 iluminado Gás e Água. Todos os direitos reservados. <br>
     Desenvolvido por <a href="https://arantesandre.github.io/personal-page/" target="_blank"><b>André Arantes</b></a>
   </footer>
-  <script src="script.js"></script>
+  <script src="src/scripts/script.js"></script>
 </body>
 
 </html>
