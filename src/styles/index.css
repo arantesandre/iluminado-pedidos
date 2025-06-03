@@ -29,8 +29,9 @@ h1 {
 }
 
 @media (max-width: 480px) {
-    h2{
-        
+    .subtext {
+        margin-top: 2rem;
+        font-size: 1.1rem;
     }
 
     .logo-iluminado-aguas {
