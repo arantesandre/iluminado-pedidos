@@ -2,7 +2,7 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/pedido-gas", "destination": "/src/pages/pedido-gas.html" },
-    { "source": "/sobre", "destination": "/src/pages/sobre.html" },
-    { "source": "/contato", "destination": "/src/pages/contato.html" }
+    { "source": "/pedido-agua", "destination": "/src/pages/pedido-agua.html" },
+    { "source": "/pedido-gas-e-agua", "destination": "/src/pages/pedido-gas-e-agua.html" }
   ]
 }
